@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'ecommerce_store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Use os.path.join for correct path handling
     }
 }
 

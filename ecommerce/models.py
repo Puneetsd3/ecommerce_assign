@@ -1,3 +1,5 @@
+# ecommerce/models.py
+
 class Cart:
     """In-memory store for user carts."""
     def __init__(self):

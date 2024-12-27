@@ -1,15 +1,16 @@
-from django.shortcuts import render  # Import render function here
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import CartSerializer, OrderSerializer, DiscountCodeSerializer
+from .models import cart_store, order_store, discount_code_store  # Import global variables
 
 @api_view(['POST'])
 def add_to_cart(request, user_id):
     serializer = CartSerializer(data=request.data)
     if serializer.is_valid():
         item_data = serializer.validated_data
-        cart_store.add_item(user_id, item_data)
+        cart_store.add_item(user_id, item_data)  # Use the global cart_store
         return Response(cart_store.get_cart(user_id), status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
