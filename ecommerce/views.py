@@ -14,8 +14,9 @@ def add_to_cart(request, user_id):
         return Response(cart_store.get_cart(user_id), status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET'])
+@api_view(['GET'])  # Ensure this line allows GET requests
 def get_cart(request, user_id):
+    """Retrieve items in the user's cart."""
     return Response(cart_store.get_cart(user_id), status=status.HTTP_200_OK)
 
 @api_view(['POST'])
