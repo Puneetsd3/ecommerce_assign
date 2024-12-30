@@ -7,5 +7,4 @@ urlpatterns = [
     path('cart/<str:user_id>/', get_cart),     # GET method for viewing cart
     path('checkout/<str:user_id>/', checkout), 
     path('generate_discount/', generate_discount),
-    path('admin/stats/', admin_stats),
-]
+    path('admin/stats/', admin_stats),]

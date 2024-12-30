@@ -15,8 +15,8 @@
 <input type="number" id="price" placeholder="Price" />
 <button onclick="addToCart('user1')">Add to Cart</button>
 
-<h2>Get Cart</h2>
-<button onclick="getCart('user1')">View Cart</button>
+<!-- <h2>Get Cart</h2>
+<button onclick="getCart('user1')">View Cart</button> --> 
 
 <h2>Checkout</h2>
 <input type="text" id="discountCode" placeholder="Discount Code (optional)" />
@@ -52,6 +52,8 @@ async function getCart(userId) {
   const data = await response.json();
   document.getElementById('result').innerText = JSON.stringify(data);
 }
+
+
 
 async function checkout(userId) {
   const discountCode = document.getElementById('discountCode').value;
